@@ -5,11 +5,43 @@ import starsImg from "../media/Star.png";
 import logosImg from "../media/logos.png";
 
 const Companies = () => {
-  const CustomContainer = styled(Container)(({ theme }) => ({}));
+  const CustomContainer = styled(Container)(({ theme }) => ({
+    display: "flex",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      alignItems: 'center',
+      textAlign: "center",
+      marginBottom: theme.spacing(4)
+    }
+  }));
 
-  const CustomBox = styled(Box)(({ theme }) => ({}));
+  const CustomBox = styled(Box)(({ theme }) => ({
+    [theme.breakpoints.down("md")]: {
+      marginBottom: theme.spacing(4)
+    }
+  }));
 
-  return <></>;
+  return <Box sx={{ mt: 4 }}>
+    <CustomContainer>
+      <CustomBox>
+        <img src={logoImg} alt="logo" style={{ maxWidth: "100%" }}></img>
+        <Typography variant="body2" sx={{ color: "#7d8589", fontSize: "16px", fontWeight: "bold", mt: 2 }}>
+          More than 45,00 trust Nesnik
+        </Typography>
+      </CustomBox>
+      <Box>
+        <img src={starsImg} alt="stars" style={{ maxWidth: "100%" }}></img>
+        <Typography variant="body2" sx={{ color: "#7d8589", fontSize: "16px", fontWeight: "bold", mt: 2 }}>
+          5 star Tatting (2k+ Reviews)
+        </Typography>
+      </Box>
+
+    </CustomContainer>
+    <Container sx={{display:'flex',flexDirection:"column"}}>
+      <img src={logosImg} alt="logos"></img>
+    </Container>
+  </Box>;
 };
 
 export default Companies;
